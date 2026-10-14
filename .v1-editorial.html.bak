@@ -1,0 +1,679 @@
+<title>Radical Sabbatical</title>
+
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,300..900,0..100,0..1&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Karla:wght@300..800&family=DM+Mono:wght@400;500&display=swap">
+
+<style>
+/* Layout concept: a studio wall — asymmetric editorial columns, taped photographs,
+   oversized wonky serif, and one graphic that makes the empty time visible. */
+:root{
+  --paper:#EFF1EA;      /* cool salt white */
+  --card:#F7F8F3;
+  --ink:#0F2420;        /* deep tidal green-black */
+  --mute:#5C6F66;
+  --haze:#DCE2D6;       /* rules, soft fills */
+  --tide:#1A6A5D;       /* structural accent */
+  --flare:#FFC53D;      /* highlighter */
+  --flare-ink:#0F2420;
+
+  --display:"Fraunces",Georgia,"Times New Roman",serif;
+  --body:"Karla","Helvetica Neue",Arial,sans-serif;
+  --mono:"DM Mono",ui-monospace,"SFMono-Regular",Menlo,monospace;
+
+  --wonk:"SOFT" 28,"WONK" 1;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#0B1916; --card:#132621;
+    --ink:#E9EFE6; --mute:#95ABA1; --haze:#1E332C;
+    --tide:#63CBB2; --flare:#FFD15C; --flare-ink:#0B1916;
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#0B1916; --card:#132621;
+  --ink:#E9EFE6; --mute:#95ABA1; --haze:#1E332C;
+  --tide:#63CBB2; --flare:#FFD15C; --flare-ink:#0B1916;
+  color-scheme:dark;
+}
+
+*,*::before,*::after{box-sizing:border-box}
+body{
+  margin:0; background:var(--paper); color:var(--ink);
+  font-family:var(--body); font-size:17px; line-height:1.62;
+  -webkit-font-smoothing:antialiased;
+}
+img{display:block; max-width:100%}
+
+h1,h2,h3,h4{font-family:var(--display); font-variation-settings:var(--wonk); text-wrap:balance; margin:0; line-height:1.03; letter-spacing:-.015em}
+p{margin:0}
+a{color:inherit}
+
+.wrap{width:min(1180px,100%); margin-inline:auto; padding-inline:clamp(20px,5vw,60px)}
+.sec{padding-block:clamp(60px,9vw,118px)}
+.stack{display:flex; flex-direction:column}
+
+.eyebrow{
+  font-family:var(--mono); font-size:.72rem; letter-spacing:.17em; text-transform:uppercase;
+  color:var(--tide); margin:0 0 18px; display:flex; align-items:center; gap:10px;
+}
+.eyebrow::before{content:""; width:26px; height:2px; background:var(--tide); flex:none}
+
+.lede{font-size:clamp(1.12rem,2vw,1.4rem); line-height:1.5; color:var(--ink); max-width:34ch}
+.muted{color:var(--mute)}
+.measure{max-width:62ch}
+
+/* ---------- hero ---------- */
+.hero{position:relative; overflow:hidden}
+.hero::after{ /* horizon wash */
+  content:""; position:absolute; inset:auto 0 0; height:46%; pointer-events:none;
+  background:linear-gradient(to bottom,transparent,color-mix(in srgb,var(--tide) 7%,transparent));
+}
+.hero-grid{
+  position:relative; z-index:1;
+  display:grid; grid-template-columns:minmax(0,1.08fr) minmax(0,.92fr);
+  gap:clamp(28px,5vw,70px); align-items:end;
+  padding-block:clamp(44px,7vw,86px) clamp(44px,6vw,76px);
+}
+.kicker{
+  font-family:var(--mono); font-size:.74rem; letter-spacing:.2em; text-transform:uppercase;
+  color:var(--mute); display:flex; flex-wrap:wrap; gap:6px 14px; margin-bottom:clamp(20px,3vw,34px);
+}
+.kicker b{font-weight:500; color:var(--tide)}
+h1{
+  font-size:clamp(3.3rem,12.5vw,8.4rem); font-weight:600;
+  font-variation-settings:"SOFT" 36,"WONK" 1; letter-spacing:-.03em;
+}
+h1 .line2{display:block; font-style:normal; color:var(--tide)}
+h1 em{
+  font-style:normal; position:relative; white-space:nowrap;
+}
+h1 em::after{
+  content:""; position:absolute; left:-.04em; right:-.04em; bottom:.1em; height:.26em; z-index:-1;
+  background:var(--flare); border-radius:3px; transform:rotate(-.7deg);
+}
+.hero-sub{margin-top:clamp(22px,3vw,34px); font-size:clamp(1.08rem,1.7vw,1.3rem); line-height:1.52; max-width:36ch}
+.hero-cta{display:flex; flex-wrap:wrap; gap:14px 18px; align-items:center; margin-top:clamp(26px,3.5vw,38px)}
+
+.btn{
+  display:inline-flex; align-items:center; gap:10px; text-decoration:none;
+  background:var(--ink); color:var(--paper); font-family:var(--body); font-weight:700;
+  font-size:.96rem; letter-spacing:.01em; padding:15px 26px; border-radius:999px;
+  border:2px solid var(--ink); transition:transform .18s ease, background .18s ease, color .18s ease;
+}
+.btn:hover{background:var(--flare); border-color:var(--flare); color:var(--flare-ink); transform:translateY(-2px)}
+.btn .arr{font-family:var(--mono); font-size:1.05em; line-height:1}
+.btn-ghost{background:transparent; color:var(--ink); border-color:color-mix(in srgb,var(--ink) 28%,transparent)}
+.btn-ghost:hover{background:var(--ink); color:var(--paper); border-color:var(--ink)}
+a:focus-visible,button:focus-visible,summary:focus-visible,input:focus-visible{
+  outline:3px solid var(--tide); outline-offset:3px; border-radius:4px;
+}
+
+/* taped photograph */
+.tape{position:relative; isolation:isolate}
+.tape img{width:100%; height:100%; object-fit:cover}
+.tape::before{
+  content:""; position:absolute; z-index:2; top:-11px; left:50%; translate:-50% 0;
+  width:116px; height:26px; background:color-mix(in srgb,var(--flare) 72%,transparent);
+  transform:rotate(-1.6deg); box-shadow:0 1px 3px rgba(0,0,0,.14);
+}
+.hero-photo{
+  aspect-ratio:3/4; max-width:100%; rotate:1.1deg;
+  background:var(--card); padding:12px 12px 56px; box-shadow:0 18px 44px -24px rgba(15,36,32,.55);
+}
+.hero-photo figcaption{
+  font-family:var(--mono); font-size:.68rem; letter-spacing:.1em; text-transform:uppercase;
+  color:var(--mute); padding-top:12px; text-align:center;
+}
+
+/* ---------- ticker ---------- */
+.band{border-block:1.5px solid var(--ink); background:var(--flare); color:var(--flare-ink); overflow:hidden}
+.band-track{
+  display:flex; gap:0; width:max-content;
+  font-family:var(--mono); font-size:.78rem; letter-spacing:.2em; text-transform:uppercase;
+  padding-block:13px; animation:slide 38s linear infinite;
+}
+.band-track span{padding-inline:26px; white-space:nowrap}
+.band-track span::after{content:"◆"; margin-left:26px; opacity:.5}
+@keyframes slide{from{transform:translateX(0)} to{transform:translateX(-50%)}}
+
+/* ---------- proportion ---------- */
+.ratio{display:grid; grid-template-columns:minmax(0,.86fr) minmax(0,1.14fr); gap:clamp(28px,5vw,64px); align-items:center}
+.bar{display:flex; height:clamp(120px,15vw,186px); border:1.5px solid var(--ink); border-radius:10px; overflow:hidden}
+.bar>div{
+  display:flex; flex-direction:column; justify-content:flex-end; padding:14px;
+  transform-origin:left center; animation:grow .95s cubic-bezier(.2,.8,.25,1) both;
+}
+.bar .held{flex:0 0 30%; background:var(--tide); color:#F2F7F4; border-right:1.5px solid var(--ink)}
+.bar .yours{flex:1 1 70%; background:
+  repeating-linear-gradient(135deg,transparent 0 11px,color-mix(in srgb,var(--ink) 7%,transparent) 11px 12px),
+  var(--card); animation-delay:.12s}
+@keyframes grow{from{transform:scaleX(.001)} to{transform:scaleX(1)}}
+.bar .pct{font-family:var(--display); font-variation-settings:var(--wonk); font-size:clamp(1.9rem,4.4vw,3.1rem); font-weight:600; line-height:.9}
+.bar .what{font-family:var(--mono); font-size:.68rem; letter-spacing:.13em; text-transform:uppercase; margin-top:7px; opacity:.88}
+.bar .yours .what{color:var(--mute)}
+
+/* ---------- section heads ---------- */
+.h2{font-size:clamp(2.1rem,5.4vw,3.5rem); font-weight:600}
+.h2 .q{color:var(--tide)}
+.head{max-width:46ch; margin-bottom:clamp(34px,5vw,54px)}
+.head p{margin-top:18px; color:var(--mute); font-size:1.06rem; max-width:52ch}
+
+/* ---------- tracks ---------- */
+.tracks{display:grid; grid-template-columns:repeat(auto-fit,minmax(290px,1fr)); gap:clamp(18px,2.4vw,26px)}
+.track{
+  background:var(--card); border:1.5px solid var(--haze); border-radius:16px;
+  padding:clamp(26px,3.4vw,38px); display:flex; flex-direction:column; gap:14px; position:relative;
+  transition:border-color .2s ease, transform .2s ease;
+}
+.track:hover{border-color:var(--tide); transform:translateY(-3px)}
+.track .num{
+  font-family:var(--mono); font-size:.7rem; letter-spacing:.18em; text-transform:uppercase; color:var(--tide);
+}
+.track h3{font-size:clamp(1.55rem,3vw,2.05rem); font-weight:600}
+.track .for{font-family:var(--mono); font-size:.78rem; color:var(--mute); line-height:1.75; border-top:1.5px dashed var(--haze); padding-top:16px; margin-top:4px}
+
+/* ---------- rhythm ---------- */
+.rhythm{display:grid; gap:0; border-top:1.5px solid var(--haze)}
+.beat{
+  display:grid; grid-template-columns:clamp(104px,15vw,190px) minmax(0,1fr) minmax(0,1.05fr);
+  gap:clamp(14px,3vw,36px); align-items:baseline;
+  padding-block:clamp(24px,3.2vw,34px); border-bottom:1.5px solid var(--haze); position:relative;
+}
+.beat .when{font-family:var(--mono); font-size:.76rem; letter-spacing:.11em; text-transform:uppercase; color:var(--mute)}
+.beat h3{font-size:clamp(1.3rem,2.7vw,1.85rem); font-weight:500}
+.beat p{color:var(--mute); font-size:1rem}
+.beat.open{background:linear-gradient(90deg,color-mix(in srgb,var(--flare) 15%,transparent),transparent 72%)}
+.beat.open .when{color:var(--ink)}
+.beat .tag{
+  display:inline-block; font-family:var(--mono); font-size:.62rem; letter-spacing:.14em; text-transform:uppercase;
+  background:var(--flare); color:var(--flare-ink); padding:3px 9px; border-radius:999px; margin-top:10px;
+}
+.beat.quiet .tag{background:transparent; color:var(--mute); border:1.5px solid var(--haze)}
+
+/* ---------- place ---------- */
+.place{display:grid; grid-template-columns:repeat(12,1fr); gap:clamp(12px,1.8vw,20px)}
+.place figure{margin:0; border-radius:14px; overflow:hidden; background:var(--card); position:relative}
+.place img{width:100%; height:100%; object-fit:cover}
+.place figcaption{
+  position:absolute; left:14px; bottom:12px; z-index:2;
+  font-family:var(--mono); font-size:.66rem; letter-spacing:.1em; text-transform:uppercase;
+  color:#fff; text-shadow:0 1px 10px rgba(0,0,0,.8);
+}
+.p-wide{grid-column:span 7; aspect-ratio:16/10}
+.p-tall{grid-column:span 5; aspect-ratio:16/10}
+.p-third{grid-column:span 4; aspect-ratio:4/3}
+.place-note{
+  grid-column:span 4; display:flex; flex-direction:column; justify-content:center; gap:10px;
+  padding:clamp(18px,2.4vw,28px); border:1.5px dashed var(--haze); border-radius:14px;
+}
+.place-note strong{font-family:var(--display); font-variation-settings:var(--wonk); font-size:1.5rem; font-weight:600; line-height:1.1}
+.place-note span{color:var(--mute); font-size:.95rem}
+
+/* ---------- rooms ---------- */
+.rooms{display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:clamp(18px,2.4vw,26px)}
+.room{border:1.5px solid var(--ink); border-radius:16px; overflow:hidden; display:flex; flex-direction:column}
+.room .top{padding:clamp(24px,3vw,34px); display:flex; flex-direction:column; gap:12px; flex:1}
+.room h3{font-size:clamp(1.5rem,2.9vw,2rem); font-weight:600}
+.room .label{font-family:var(--mono); font-size:.68rem; letter-spacing:.16em; text-transform:uppercase; color:var(--tide)}
+.room ul{margin:8px 0 0; padding:0; list-style:none; display:flex; flex-direction:column; gap:9px}
+.room li{position:relative; padding-left:22px; color:var(--mute); font-size:.97rem}
+.room li::before{content:"→"; position:absolute; left:0; font-family:var(--mono); color:var(--tide)}
+.room .foot{background:var(--ink); color:var(--paper); padding:14px clamp(24px,3vw,34px); font-family:var(--mono); font-size:.72rem; letter-spacing:.12em; text-transform:uppercase}
+.room.alt .foot{background:var(--tide); color:#06201B}
+
+/* ---------- steps ---------- */
+.steps{display:grid; grid-template-columns:repeat(auto-fit,minmax(215px,1fr)); gap:clamp(16px,2.2vw,24px); counter-reset:s}
+.step{position:relative; padding-top:26px; border-top:3px solid var(--ink); display:flex; flex-direction:column; gap:10px}
+.step::before{
+  counter-increment:s; content:counter(s,decimal-leading-zero);
+  font-family:var(--mono); font-size:.76rem; letter-spacing:.14em; color:var(--tide);
+}
+.step h3{font-size:1.3rem; font-weight:600}
+.step p{color:var(--mute); font-size:.97rem}
+.step:last-child{border-top-color:var(--flare)}
+
+/* ---------- packing ---------- */
+.pack{display:grid; grid-template-columns:repeat(auto-fit,minmax(255px,1fr)); gap:clamp(20px,3vw,34px)}
+.pack h3{font-size:1.22rem; font-weight:600; margin-bottom:14px; padding-bottom:12px; border-bottom:1.5px solid var(--haze)}
+.pack ul{margin:0; padding:0; list-style:none; display:flex; flex-direction:column; gap:3px}
+.pack label{display:flex; gap:11px; align-items:flex-start; cursor:pointer; padding:5px 0; font-size:.97rem; line-height:1.45}
+.pack input{
+  appearance:none; -webkit-appearance:none; flex:none; width:19px; height:19px; margin-top:3px;
+  border:1.5px solid var(--mute); border-radius:5px; background:transparent; cursor:pointer; position:relative;
+  transition:background .14s ease, border-color .14s ease;
+}
+.pack input:checked{background:var(--tide); border-color:var(--tide)}
+.pack input:checked::after{
+  content:"✓"; position:absolute; inset:0; display:grid; place-items:center;
+  font-size:12px; font-weight:700; color:var(--paper);
+}
+.pack input:checked + span{text-decoration:line-through; color:var(--mute)}
+.leave{
+  margin-top:clamp(34px,4.5vw,50px); border:1.5px solid var(--ink); border-radius:16px;
+  padding:clamp(24px,3.4vw,38px); display:grid; grid-template-columns:minmax(0,.7fr) minmax(0,1.3fr);
+  gap:clamp(18px,3vw,38px); align-items:start;
+}
+.leave h3{font-size:clamp(1.5rem,3vw,2rem); font-weight:600}
+.leave ol{margin:0; padding:0; list-style:none; display:flex; flex-direction:column; gap:12px}
+.leave li{display:flex; gap:12px; align-items:baseline; font-size:1.02rem}
+.leave li .x{font-family:var(--mono); color:var(--flare); font-weight:500; flex:none}
+
+/* ---------- faq ---------- */
+.faq{border-top:1.5px solid var(--haze)}
+.faq details{border-bottom:1.5px solid var(--haze)}
+.faq summary{
+  cursor:pointer; list-style:none; padding:22px 44px 22px 0; position:relative;
+  font-family:var(--display); font-variation-settings:var(--wonk);
+  font-size:clamp(1.12rem,2.2vw,1.42rem); font-weight:500; line-height:1.25;
+}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{
+  content:"+"; position:absolute; right:6px; top:50%; translate:0 -50%;
+  font-family:var(--mono); font-size:1.4rem; color:var(--tide); transition:transform .2s ease;
+}
+.faq details[open] summary::after{transform:rotate(45deg)}
+.faq .a{padding:0 clamp(0px,6vw,88px) 24px 0; color:var(--mute); max-width:66ch}
+.faq .a p + p{margin-top:12px}
+
+/* ---------- close ---------- */
+.close{position:relative; overflow:hidden; border-top:1.5px solid var(--ink)}
+.close-img{position:absolute; inset:0}
+.close-img img{width:100%; height:100%; object-fit:cover; filter:saturate(.72)}
+.close-img::after{content:""; position:absolute; inset:0; background:linear-gradient(105deg,var(--paper) 30%,color-mix(in srgb,var(--paper) 72%,transparent) 62%,color-mix(in srgb,var(--paper) 30%,transparent))}
+.close .wrap{position:relative; z-index:1}
+.close h2{font-size:clamp(2.3rem,6.6vw,4.4rem); font-weight:600; max-width:15ch}
+.close p{margin-top:20px; max-width:40ch; font-size:1.1rem}
+
+footer{border-top:1.5px solid var(--haze); padding-block:34px; font-family:var(--mono); font-size:.72rem; letter-spacing:.11em; text-transform:uppercase; color:var(--mute)}
+.foot-row{display:flex; flex-wrap:wrap; gap:10px 28px; justify-content:space-between}
+
+@media (max-width:860px){
+  .hero-grid{grid-template-columns:1fr; align-items:start}
+  .hero-photo{rotate:0deg; max-width:420px}
+  .ratio{grid-template-columns:1fr}
+  .beat{grid-template-columns:1fr; gap:6px}
+  .beat .when{margin-bottom:4px}
+  .place figure,.place-note{grid-column:span 12 !important}
+  .p-wide,.p-tall,.p-third{aspect-ratio:16/10}
+  .leave{grid-template-columns:1fr}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.001ms !important; animation-iteration-count:1 !important; transition-duration:.001ms !important}
+  .bar>div{transform:none}
+}
+</style>
+
+<header class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <p class="kicker"><b>Endicott College</b> · Beverly, Massachusetts <span>·</span> Summer 2027 <span>·</span> Five days</p>
+      <h1>Radical<span class="line2"><em>Sabbatical</em></span></h1>
+      <p class="hero-sub">Five days on the Atlantic where almost nothing is scheduled — on purpose. You bring the work. We hold the week.</p>
+      <div class="hero-cta">
+        <a class="btn" href="#join">Express interest <span class="arr">→</span></a>
+        <a class="btn btn-ghost" href="#rhythm">See the daily rhythm</a>
+      </div>
+    </div>
+    <figure class="hero-photo tape">
+      <img src="images/arts-center.jpg" alt="The Walter J. Manninen Center for the Arts at Endicott College, glass and pale stone framed by a broad oak branch." width="780" height="1040" loading="eager">
+      <figcaption>Manninen Center for the Arts</figcaption>
+    </figure>
+  </div>
+</header>
+
+<div class="band" aria-hidden="true">
+  <div class="band-track">
+    <span>Five days</span><span>Two tracks</span><span>One ocean</span><span>70% unscheduled</span><span>Summer 2027</span><span>Bring the thing</span>
+    <span>Five days</span><span>Two tracks</span><span>One ocean</span><span>70% unscheduled</span><span>Summer 2027</span><span>Bring the thing</span>
+  </div>
+</div>
+
+<main>
+
+<section class="sec">
+  <div class="wrap ratio">
+    <div>
+      <p class="eyebrow">The math of the week</p>
+      <h2 class="h2">Most retreats fill your day. <span class="q">This one empties it.</span></h2>
+      <p style="margin-top:20px; color:var(--mute); max-width:46ch">
+        A workshop in the morning, a walk if you want one, a salon at night. Everything between those is yours,
+        unprogrammed and unapologetic. Seventy percent of this week has nothing in it but you and the work.
+      </p>
+    </div>
+    <div class="bar" role="img" aria-label="A bar divided in two: 30 percent held structure — workshop, walk, salon — and 70 percent your own creative time.">
+      <div class="held">
+        <span class="pct">30%</span>
+        <span class="what">Held<br>structure</span>
+      </div>
+      <div class="yours">
+        <span class="pct">70%</span>
+        <span class="what">Yours — long, quiet, uninterrupted</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="tracks" style="background:color-mix(in srgb,var(--tide) 5%,var(--paper))">
+  <div class="wrap">
+    <div class="head">
+      <p class="eyebrow">Two tracks</p>
+      <h2 class="h2">Come to finish something. Or come to find out what you'd make.</h2>
+      <p>You choose a track on your application. Nobody checks your credentials at the door, and nobody minds if you switch on day three.</p>
+    </div>
+    <div class="tracks">
+      <article class="track">
+        <p class="num">Track One</p>
+        <h3>Bring the thing</h3>
+        <p>The manuscript stalled at 40,000 words. The album half-tracked. The business you keep describing at parties. The quilt in the closet. You have a project and it has been waiting for a week like this.</p>
+        <p class="for">Arrive with: the work, in whatever state it is in.<br>Leave with: real distance covered, and a next step you can name.</p>
+      </article>
+      <article class="track">
+        <p class="num">Track Two</p>
+        <h3>Follow the thread</h3>
+        <p>No project. No plan. Maybe you made things once and stopped, or never started and always wondered. Five days of open time, good materials, and permission is a surprisingly powerful combination.</p>
+        <p class="for">Arrive with: curiosity and one blank notebook.<br>Leave with: something you did not expect to be holding.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="rhythm">
+  <div class="wrap">
+    <div class="head">
+      <p class="eyebrow">Daily rhythm</p>
+      <h2 class="h2">The shape of a day</h2>
+      <p>Four anchors, loosely held. Everything highlighted below is open time — the point of the whole exercise.</p>
+    </div>
+    <div class="rhythm">
+      <div class="beat">
+        <p class="when">Morning</p>
+        <div>
+          <h3>Workshop, then into it</h3>
+          <span class="tag" style="background:var(--tide); color:#F2F7F4">Anchor</span>
+        </div>
+        <p>We start together — craft, process, a prompt, a problem worth chewing on. Then the room goes quiet and everyone peels off into their own work while the coffee is still hot.</p>
+      </div>
+      <div class="beat quiet">
+        <p class="when">After lunch</p>
+        <div>
+          <h3>The optional walk</h3>
+          <span class="tag">Optional, always</span>
+        </div>
+        <p>Down to the water, or the long way around campus. Walking is how most ideas actually arrive. Skipping it is also a completely legitimate creative strategy.</p>
+      </div>
+      <div class="beat open">
+        <p class="when">Afternoon</p>
+        <div>
+          <h3>Extended creative time</h3>
+          <span class="tag">The big block</span>
+        </div>
+        <p>Hours, not minutes. Long enough to get past the fidgeting and into the part where you lose track of the light. No check-ins, no sessions, nowhere you are supposed to be.</p>
+      </div>
+      <div class="beat">
+        <p class="when">Evening</p>
+        <div>
+          <h3>Creative salon</h3>
+          <span class="tag" style="background:var(--tide); color:#F2F7F4">Anchor</span>
+        </div>
+        <p>Read a page aloud. Prop something against a wall. Play the rough mix. Or sit with a drink and listen — nobody is required to perform. This is where the cohort becomes a cohort.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="place" style="background:color-mix(in srgb,var(--tide) 5%,var(--paper))">
+  <div class="wrap">
+    <div class="head">
+      <p class="eyebrow">The place</p>
+      <h2 class="h2">A coastal campus, emptied of students, for five days in summer</h2>
+      <p>Endicott sits on the North Shore in Beverly, Massachusetts — about thirty minutes north of Boston, with the Atlantic at the bottom of the lawn.</p>
+    </div>
+    <div class="place">
+      <figure class="p-wide">
+        <img src="images/quad-dusk.jpg" alt="Endicott College quad at dusk, with a circular lawn, curved stone amphitheater and lit buildings." width="1600" height="1000" loading="lazy">
+        <figcaption>The quad at golden hour</figcaption>
+      </figure>
+      <figure class="p-tall">
+        <img src="images/beach.jpg" alt="A quiet sand and rock beach on the Atlantic under a clear sky." width="1136" height="852" loading="lazy">
+        <figcaption>Ten minutes from your room</figcaption>
+      </figure>
+      <figure class="p-third">
+        <img src="images/garden-lodge.webp" alt="A brick building with a peaked glass entrance behind a garden and a copper globe sculpture." width="950" height="712" loading="lazy">
+        <figcaption>Workshop + salon spaces</figcaption>
+      </figure>
+      <figure class="p-third">
+        <img src="images/lodge-patio.jpg" alt="A stone patio with wooden Adirondack chairs and picnic tables set among boulders and pines." width="640" height="480" loading="lazy">
+        <figcaption>Where afternoons go long</figcaption>
+      </figure>
+      <div class="place-note">
+        <strong>Everything within a ten-minute walk</strong>
+        <span>Studio, room, dining, shoreline. No cars, no commuting, no logistics eating your afternoon.</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="stay">
+  <div class="wrap">
+    <div class="head">
+      <p class="eyebrow">Where you'll sleep</p>
+      <h2 class="h2">Two ways to stay</h2>
+      <p>Both are on campus, a short walk from everything. You choose when you register.</p>
+    </div>
+    <div class="rooms">
+      <article class="room">
+        <div class="top">
+          <p class="label">Option A</p>
+          <h3>A room of your own</h3>
+          <p class="muted">Single occupancy. The door closes and the day is entirely yours to arrange.</p>
+          <ul>
+            <li>Private room, no negotiating with anyone's alarm</li>
+            <li>Space to spread the work out and leave it out</li>
+            <li>Best if you need silence to think, or write at 2am</li>
+          </ul>
+        </div>
+        <p class="foot">Single occupancy · limited</p>
+      </article>
+      <article class="room alt">
+        <div class="top">
+          <p class="label">Option B</p>
+          <h3>A room with a co-conspirator</h3>
+          <p class="muted">Shared occupancy. Lower cost, and a built-in witness to the week.</p>
+          <ul>
+            <li>Shared double — come with a friend or be matched</li>
+            <li>Someone to debrief with when the salon runs late</li>
+            <li>Best if company keeps you honest about the work</li>
+          </ul>
+        </div>
+        <p class="foot">Shared occupancy · lower rate</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="join" style="background:color-mix(in srgb,var(--tide) 5%,var(--paper))">
+  <div class="wrap">
+    <div class="head">
+      <p class="eyebrow">How you get in</p>
+      <h2 class="h2">Four steps, and only one of them costs anything</h2>
+      <p>The cohort is kept small on purpose, so the application is a real conversation rather than a formality.</p>
+    </div>
+    <div class="steps">
+      <div class="step">
+        <h3>Express interest</h3>
+        <p>Two minutes, no commitment. You get the dates, the pricing and the application the moment they are set.</p>
+      </div>
+      <div class="step">
+        <h3>Apply</h3>
+        <p>Tell us what you're bringing or what you're after, and pick a track. Write it like a letter, not a CV.</p>
+      </div>
+      <div class="step">
+        <h3>Acceptance</h3>
+        <p>We read every application and build a cohort that will be good for each other. You hear back either way.</p>
+      </div>
+      <div class="step">
+        <h3>Pay registration</h3>
+        <p>Choose your room, pay, and the seat is yours. The packing list and arrival notes land in your inbox.</p>
+      </div>
+    </div>
+    <div class="hero-cta" style="margin-top:clamp(34px,4.5vw,50px)">
+      <a class="btn" href="#join">Express interest <span class="arr">→</span></a>
+      <span class="muted" style="font-size:.95rem">Summer 2027 · Beverly, MA · applications open first to this list</span>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="packing">
+  <div class="wrap">
+    <div class="head">
+      <p class="eyebrow">Packing list</p>
+      <h2 class="h2">What to bring</h2>
+      <p>Tick these off as you go — the page remembers for you, on this device.</p>
+    </div>
+    <div class="pack" id="packlist">
+      <div>
+        <h3>The work</h3>
+        <ul>
+          <li><label><input type="checkbox" id="p1"><span>Your project, in whatever state it's in</span></label></li>
+          <li><label><input type="checkbox" id="p2"><span>A notebook you don't mind ruining</span></label></li>
+          <li><label><input type="checkbox" id="p3"><span>Laptop or tablet, plus every charger</span></label></li>
+          <li><label><input type="checkbox" id="p4"><span>Whatever your medium runs on — film, thread, paint, strings, batteries</span></label></li>
+          <li><label><input type="checkbox" id="p5"><span>Headphones, the good ones</span></label></li>
+          <li><label><input type="checkbox" id="p6"><span>One reference object: the book, the photo, the thing you keep returning to</span></label></li>
+        </ul>
+      </div>
+      <div>
+        <h3>The body</h3>
+        <ul>
+          <li><label><input type="checkbox" id="p7"><span>Shoes you can actually walk in</span></label></li>
+          <li><label><input type="checkbox" id="p8"><span>Layers — the ocean writes its own weather</span></label></li>
+          <li><label><input type="checkbox" id="p9"><span>Swimsuit and a towel for the beach</span></label></li>
+          <li><label><input type="checkbox" id="p10"><span>Sunscreen, hat, refillable water bottle</span></label></li>
+          <li><label><input type="checkbox" id="p11"><span>Anything you need to sleep well in a new bed</span></label></li>
+        </ul>
+      </div>
+      <div>
+        <h3>The room</h3>
+        <ul>
+          <li><label><input type="checkbox" id="p12"><span>Flip-flops for shared bathrooms</span></label></li>
+          <li><label><input type="checkbox" id="p13"><span>A mug that is yours</span></label></li>
+          <li><label><input type="checkbox" id="p14"><span>A small lamp, if overhead light offends you</span></label></li>
+          <li><label><input type="checkbox" id="p15"><span>Earplugs and an eye mask</span></label></li>
+          <li><label><input type="checkbox" id="p16"><span>One object that makes a room feel like yours</span></label></li>
+        </ul>
+      </div>
+      <div>
+        <h3>For the salon</h3>
+        <ul>
+          <li><label><input type="checkbox" id="p17"><span>Something to share — a page, a sketch, a track, a question</span></label></li>
+          <li><label><input type="checkbox" id="p18"><span>One thing you've never shown anyone</span></label></li>
+          <li><label><input type="checkbox" id="p19"><span>A book you've been meaning to read for two years</span></label></li>
+          <li><label><input type="checkbox" id="p20"><span>Comfortable clothes for sitting on floors</span></label></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="leave">
+      <h3>And what to leave at home</h3>
+      <ol>
+        <li><span class="x">✕</span><span>Your inbox. Set the auto-reply before you get in the car.</span></li>
+        <li><span class="x">✕</span><span>The other project — the one you <em>should</em> be working on.</span></li>
+        <li><span class="x">✕</span><span>The plan to produce something finished, impressive and shareable by Friday.</span></li>
+        <li><span class="x">✕</span><span>Whoever told you this isn't a serious use of five days.</span></li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="faq" style="background:color-mix(in srgb,var(--tide) 5%,var(--paper))">
+  <div class="wrap">
+    <div class="head">
+      <p class="eyebrow">Questions</p>
+      <h2 class="h2">The things people ask first</h2>
+    </div>
+    <div class="faq">
+      <details open>
+        <summary>Do I have to be an artist?</summary>
+        <div class="a"><p>No. Radical Sabbatical is for anyone with something they want to make or work out — founders, researchers, cooks, coders, teachers, people between chapters. The only requirement is that you want the time badly enough to come and take it.</p></div>
+      </details>
+      <details>
+        <summary>What counts as a project?</summary>
+        <div class="a"><p>Anything with a next step. A book, a business, a thesis, a record, a garden plan, a career change, a hundred photographs you've never edited. If you can describe what moving it forward would look like, it counts.</p></div>
+      </details>
+      <details>
+        <summary>Seventy percent unstructured time sounds terrifying. Help.</summary>
+        <div class="a">
+          <p>That reaction is extremely common, and usually a sign you need this more than most. Three things make it work: the morning workshop gives you a running start, the walk resets you when you stall, and the salon means every day ends with other people.</p>
+          <p>The open time is also not enforced solitude. Some people work alone in their rooms for five days. Others colonise a table and work in companionable silence. Both are correct.</p>
+        </div>
+      </details>
+      <details>
+        <summary>Who else will be there?</summary>
+        <div class="a"><p>A deliberately small, deliberately mixed cohort — different disciplines, different stages, different ages. Mixing fields is the point: a novelist and a furniture maker have more to say to each other than two novelists do.</p></div>
+      </details>
+      <details>
+        <summary>What does it cost, and what's included?</summary>
+        <div class="a"><p>Pricing goes out with the application, and the two accommodation options are priced separately — shared occupancy is the lower rate. Express interest and you'll have the full breakdown before anyone is asked for anything.</p></div>
+      </details>
+      <details>
+        <summary>How do I get to Endicott?</summary>
+        <div class="a"><p>Beverly, Massachusetts, on the North Shore — roughly thirty minutes north of Boston by car. The commuter rail runs from Boston's North Station to Beverly, and Logan Airport is under an hour away. Detailed arrival notes come with your registration.</p></div>
+      </details>
+      <details>
+        <summary>Can I come with a friend or a partner?</summary>
+        <div class="a"><p>Yes. Apply separately so we can read you both, and note in your application that you'd like to share a room. You can also request shared occupancy and be matched with someone from the cohort.</p></div>
+      </details>
+      <details>
+        <summary>What if I don't finish anything?</summary>
+        <div class="a"><p>Then you had five days of real creative time, which is the thing most people never get. Finishing is a lovely side effect, not the fee you pay for the week.</p></div>
+      </details>
+      <details>
+        <summary>I have access needs or a dietary requirement.</summary>
+        <div class="a"><p>There's a space for it on the application, and we'd rather hear about it early than politely late. Tell us what you need and we'll tell you honestly what we can do.</p></div>
+      </details>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<section class="close sec">
+  <div class="close-img" aria-hidden="true">
+    <img src="images/campus-aerial.jpg" alt="" width="1280" height="720" loading="lazy">
+  </div>
+  <div class="wrap">
+    <p class="eyebrow">Summer 2027</p>
+    <h2>Five days is not very long. It is also plenty.</h2>
+    <p class="muted">Get the dates, pricing and application before anyone else. No commitment, no sales pitch — just the information when it exists.</p>
+    <div class="hero-cta">
+      <a class="btn" href="#join">Express interest <span class="arr">→</span></a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap foot-row">
+    <span>Radical Sabbatical · Endicott College · Beverly, MA</span>
+    <span>Five days · Summer 2027</span>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var KEY = "radical-sabbatical-packing";
+  var list = document.getElementById("packlist");
+  if(!list) return;
+  var boxes = list.querySelectorAll('input[type="checkbox"]');
+  var saved = {};
+  try{ saved = JSON.parse(localStorage.getItem(KEY) || "{}") || {}; }catch(e){ saved = {}; }
+  boxes.forEach(function(b){ if(saved[b.id]) b.checked = true; });
+  function save(){
+    var out = {};
+    boxes.forEach(function(b){ if(b.checked) out[b.id] = 1; });
+    try{ localStorage.setItem(KEY, JSON.stringify(out)); }catch(e){}
+  }
+  list.addEventListener("change", function(e){ if(e.target && e.target.type === "checkbox") save(); });
+})();
+</script>
