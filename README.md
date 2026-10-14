@@ -10,22 +10,25 @@ A single static page. No build step, no dependencies, no framework. Open `index.
 
 ## Files
 
+Everything sits flat at the top level, so the whole site can be uploaded
+through GitHub's web uploader in one go.
+
 ```
 index.html          the entire page — structure, styles and behaviour
 CNAME               tells GitHub Pages to serve the custom domain
 robots.txt          search engine permissions
 sitemap.xml         one URL, for indexing
 .nojekyll           stops GitHub running Jekyll over the files
-images/
-  arts-center.jpg     Manninen Center for the Arts (cover)
-  quad-dusk.jpg       the quad at golden hour (filmstrip + social card)
-  beach.jpg           the shoreline
-  garden-lodge.webp   workshop and salon spaces
-  lodge-patio.jpg     the patio
-  campus-aerial.jpg   behind the permission slip
-  erin.jpg            host photo
-  social-card.jpg     1200×630 link preview
-  favicon.png         browser tab icon
+
+arts-center.jpg     Manninen Center for the Arts (cover)
+quad-dusk.jpg       the quad at golden hour (filmstrip + social card)
+beach.jpg           the shoreline
+garden-lodge.webp   workshop and salon spaces
+lodge-patio.jpg     the patio
+campus-aerial.jpg   behind the permission slip
+erin.jpg            host photo
+social-card.jpg     1200×630 link preview
+favicon.png         browser tab icon
 ```
 
 Fonts load from Google Fonts at runtime: Bricolage Grotesque, Courier Prime, Archivo. Everything else is in the file.
