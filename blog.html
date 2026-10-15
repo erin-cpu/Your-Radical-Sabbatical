@@ -1,0 +1,32 @@
+---
+layout: default
+title: Dispatches
+permalink: /blog/
+---
+<header class="page-head">
+  <div class="wrap">
+    <p class="folio">Dispatches</p>
+    <h1>Notes from before the week.</h1>
+    <p class="sub">Thinking out loud about creative time, unstructured days, and what happens when you stop being useful for five days running.</p>
+  </div>
+</header>
+
+<div class="posts">
+  <div class="wrap">
+    {% if site.posts.size > 0 %}
+      {% for post in site.posts %}
+        <article class="post-item">
+          <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%-d %B %Y" }}</time>
+          <h2><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h2>
+          <p class="excerpt">{{ post.excerpt | strip_html | strip_newlines | truncate: 220 }}</p>
+          <a class="more" href="{{ post.url | relative_url }}">Read it →</a>
+        </article>
+      {% endfor %}
+    {% else %}
+      <p class="empty">
+        Nothing here yet.<br>
+        The first dispatch goes up soon.
+      </p>
+    {% endif %}
+  </div>
+</div>

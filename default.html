@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>{% if page.title %}{{ page.title }} · {% endif %}Your Radical Sabbatical</title>
+<meta name="description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 155 }}{% else %}{{ site.description }}{% endif %}">
+<link rel="canonical" href="{{ page.url | absolute_url }}">
+
+<meta property="og:type" content="{% if page.date %}article{% else %}website{% endif %}">
+<meta property="og:site_name" content="Your Radical Sabbatical">
+<meta property="og:url" content="{{ page.url | absolute_url }}">
+<meta property="og:title" content="{% if page.title %}{{ page.title }}{% else %}Your Radical Sabbatical{% endif %}">
+<meta property="og:description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 155 }}{% else %}{{ site.description }}{% endif %}">
+<meta property="og:image" content="{{ '/social-card.jpg' | absolute_url }}">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="icon" href="/favicon.png" type="image/png">
+<meta name="theme-color" content="#F0EBDF">
+
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,200..800&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400&family=Archivo:wdth,wght@62..125,100..900&display=swap">
+<link rel="stylesheet" href="/blog.css">
+</head>
+<body>
+
+<div class="masthead">
+  <div class="wrap">
+    <span><b>Your Radical Sabbatical</b> · Dispatches</span>
+    <span><a href="/">← back to the main page</a></span>
+  </div>
+</div>
+
+{{ content }}
+
+<footer>
+  <div class="wrap">
+    <span><b>Your Radical Sabbatical</b></span>
+    <span><a href="/">yourradicalsabbatical.com</a></span>
+    <span>Endicott College · Beverly, MA</span>
+    <span>Five days · Summer 2027</span>
+  </div>
+</footer>
+
+</body>
+</html>

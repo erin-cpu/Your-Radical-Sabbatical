@@ -205,7 +205,7 @@ a{color:var(--ink)}
   background:var(--card); padding:11px 11px 46px; border:1px solid var(--rule);
   box-shadow:6px 8px 0 rgba(22,20,26,.16); position:relative; rotate:2.2deg;
 }
-.print img{width:100%; aspect-ratio:3/4; object-fit:cover}
+.print img{width:100%; aspect-ratio:1/1; object-fit:cover}
 .print figcaption{
   font-family:var(--mono); font-size:.66rem; letter-spacing:.09em; text-transform:uppercase;
   color:var(--mute); padding-top:11px; text-align:center;
@@ -595,19 +595,20 @@ footer b{color:var(--yellow); font-weight:700}
   background-size:32px 11px; background-position:left center; background-repeat:repeat-x;
 }
 .frames{
-  display:flex; gap:clamp(10px,1.6vw,16px); padding:clamp(10px,1.6vw,16px);
+  display:flex; align-items:flex-start; gap:clamp(10px,1.6vw,16px); padding:clamp(10px,1.6vw,16px);
   overflow-x:auto; overflow-y:hidden; overscroll-behavior-x:contain;
   scroll-snap-type:x proximity; cursor:grab; scrollbar-width:thin;
 }
 .frames.dragging{cursor:grabbing; scroll-snap-type:none; scroll-behavior:auto}
 .sframe{
   flex:0 0 clamp(228px,32vw,400px); margin:0; position:relative; scroll-snap-align:center;
-  border:3px solid var(--paper); background:var(--card); overflow:hidden;
+  border:3px solid var(--paper); background:var(--card); overflow:hidden; aspect-ratio:16/9;
 }
-.sframe img{width:100%; aspect-ratio:4/3; object-fit:cover; pointer-events:none}
+.sframe img{width:100%; height:100%; object-fit:cover; pointer-events:none}
 .sframe.note{
-  display:flex; flex-direction:column; justify-content:center; gap:11px; aspect-ratio:4/3;
-  padding:clamp(18px,2.4vw,28px); background:var(--yellow); border-color:var(--yellow);
+  display:flex; flex-direction:column; justify-content:center; gap:11px;
+  aspect-ratio:auto; align-self:stretch;
+  padding:clamp(16px,2.2vw,26px); background:var(--yellow); border-color:var(--yellow);
 }
 .sframe.note strong{font-family:var(--display); font-weight:800; font-size:1.3rem; line-height:1.05}
 .sframe.note span{font-size:.95rem; color:#4A4330}
@@ -738,6 +739,7 @@ footer b{color:var(--yellow); font-weight:700}
         <span class="stamp blue">No experience required</span>
         <span class="stamp green">Cohort kept small</span>
       </div>
+      <p style="margin-top:22px"><a class="steplink" href="/blog/">Read the dispatches →</a></p>
     </div>
 
     <div style="position:relative">
@@ -1286,6 +1288,7 @@ footer b{color:var(--yellow); font-weight:700}
   <div class="wrap">
     <span><b class="mastname">Your Radical Sabbatical</b> · Issue No. 01</span>
     <span><a href="https://yourradicalsabbatical.com">yourradicalsabbatical.com</a></span>
+    <span><a href="/blog/">Dispatches</a></span>
     <span>Endicott College · Beverly, MA</span>
     <span>Five days · Summer 2027</span>
     <span class="colophon">

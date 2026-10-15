@@ -66,6 +66,55 @@ The `CNAME` file in this repo already contains the domain, so GitHub will pick i
 
 ---
 
+## Writing a blog post
+
+Posts live at `yourradicalsabbatical.com/blog/`. You never need to touch your
+computer or upload anything — write them straight into GitHub in the browser.
+
+1. In the repo: **Add file** → **Create new file**
+2. In the filename box type: `_posts/2027-01-15-your-post-title.md`
+   (typing the `/` creates the folder automatically)
+3. Paste this at the very top, then write underneath it:
+
+```
+---
+layout: post
+title: "Your title here"
+date: 2027-01-15
+---
+
+Your first paragraph goes here. Just write — blank line between paragraphs.
+
+## A heading looks like this
+
+**Bold** and *italic* work as you'd expect.
+
+> A quote sits in big type with a pink line beside it.
+```
+
+4. **Commit changes**. The post is live in about a minute.
+
+### Rules that matter
+
+- **The filename must start with a date**, `YYYY-MM-DD-`, then the slug. That date
+  sets the post's position in the list, and the slug becomes the web address.
+- **The three dashes at the top and bottom of the header block are required.**
+  If a post doesn't appear, that's almost always why.
+- **`title:` must be in "straight quotes"** if it contains a colon or apostrophe.
+- Posts appear newest first, automatically. There's no index to update.
+- A post dated in the future won't show until that date arrives — useful for
+  scheduling, confusing if accidental.
+
+To edit a post later, open it in the repo and click the pencil. To delete one,
+open it and click the bin.
+
+### Images in posts
+
+Upload the image to the top level of the repo like any other file, then refer
+to it as `![Description](/my-image.jpg)`.
+
+---
+
 ## Making changes
 
 Edit `index.html` and push. The page redeploys in about a minute.

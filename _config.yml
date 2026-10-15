@@ -1,0 +1,15 @@
+title: Your Radical Sabbatical
+description: Five days at Endicott College, Beverly, Massachusetts. Summer 2027.
+url: https://yourradicalsabbatical.com
+
+# Posts live at yourradicalsabbatical.com/blog/the-post-title/
+permalink: /blog/:title/
+
+timezone: America/New_York
+
+# Files Jekyll should leave alone
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+  - vendor
