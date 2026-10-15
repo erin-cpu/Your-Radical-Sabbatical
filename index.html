@@ -414,7 +414,11 @@ a{color:var(--ink)}
 .ticket li::before{content:"→"; position:absolute; left:0; font-family:var(--mono); color:var(--blue); font-weight:700}
 .ticket .stub{border-left:3px dashed var(--ink); background:var(--blue); color:#F2F4FF; display:grid; place-items:center}
 .ticket.b .stub{background:var(--pink); color:#FFF6FA}
-.ticket .stub span{writing-mode:vertical-rl; transform:rotate(180deg); font-family:var(--mono); font-weight:700; font-size:.68rem; letter-spacing:.24em; text-transform:uppercase}
+.ticket .stub span{writing-mode:vertical-rl; transform:rotate(180deg); font-family:var(--mono); font-weight:700; font-size:.62rem; letter-spacing:.2em; text-transform:uppercase; white-space:nowrap}
+.roomnote{
+  margin-top:clamp(22px,3vw,32px); font-family:var(--mono); font-size:.76rem;
+  letter-spacing:.08em; color:var(--mute); border-top:2px dashed var(--rule); padding-top:16px;
+}
 
 /* ───────── steps ───────── */
 .steps{display:grid; grid-template-columns:repeat(auto-fit,minmax(210px,1fr)); gap:clamp(16px,2.2vw,24px); counter-reset:s}
@@ -1009,30 +1013,31 @@ footer b{color:var(--yellow); font-weight:700}
       <article class="ticket">
         <div class="body">
           <span class="opt-l">Option A</span>
-          <h3>A room of your own</h3>
-          <p style="color:var(--mute)">Single occupancy. The door closes and the day is entirely yours to arrange.</p>
+          <h3>Private Room</h3>
+          <p style="color:var(--mute)">A bedroom of your own. Shared apartment bathroom, kitchen and living room.</p>
           <ul>
-            <li>Private room — nobody else's alarm to negotiate</li>
+            <li>Nobody else's alarm to negotiate</li>
             <li>Spread the work out and leave it out</li>
             <li>Best if you need silence, or write at 2am</li>
           </ul>
         </div>
-        <div class="stub"><span>Single · limited</span></div>
+        <div class="stub"><span>Single occupancy</span></div>
       </article>
       <article class="ticket b">
         <div class="body">
           <span class="opt-l">Option B</span>
-          <h3>A room with a co-conspirator</h3>
-          <p style="color:var(--mute)">Shared occupancy. Lower rate, and a built-in witness to the week.</p>
+          <h3>Shared Bedroom</h3>
+          <p style="color:var(--mute)">Share a bedroom with another participant, and share the apartment space.</p>
           <ul>
-            <li>Shared double — bring a friend or be matched</li>
+            <li>Bring a friend, or be matched with someone</li>
             <li>Someone to debrief with when the salon runs late</li>
-            <li>Best if company keeps you honest about the work</li>
+            <li>Lower rate than a private room</li>
           </ul>
         </div>
-        <div class="stub"><span>Shared · lower rate</span></div>
+        <div class="stub"><span>Double occupancy</span></div>
       </article>
     </div>
+    <p class="roomnote">Final 2027 room availability and arrangements to follow.</p>
   </div>
 </section>
 
