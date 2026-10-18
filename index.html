@@ -300,7 +300,7 @@ a{color:var(--ink)}
 .cell.held:hover{background:var(--blue); transform:none}
 .cell.mine{background:var(--pink); border-color:var(--pink); mix-blend-mode:multiply}
 @keyframes pop{from{opacity:0; transform:scale(.3)} to{opacity:1; transform:scale(1)}}
-.math-key{display:flex; flex-wrap:wrap; gap:10px 22px; margin-top:18px; font-family:var(--mono); font-size:1rem; text-transform:uppercase; letter-spacing:.1em}
+.math-key{display:flex; flex-wrap:wrap; gap:10px 22px; margin-top:42px; font-family:var(--mono); font-size:1rem; text-transform:uppercase; letter-spacing:.1em}
 .math-key i{display:inline-block; width:14px; height:14px; border:1.5px solid var(--ink); margin-right:7px; translate:0 2px}
 .math-key .k-blue i{background:var(--blue)}
 .math-key .k-pink i{background:var(--pink)}
@@ -430,7 +430,7 @@ a{color:var(--ink)}
 
 /* ───────── day ribbon ───────── */
 .day{display:grid; grid-template-columns:minmax(0,.95fr) minmax(0,1.05fr); gap:clamp(26px,4.5vw,56px); align-items:start}
-.ribbon{display:flex; flex-direction:column; height:clamp(700px,76vh,800px); border:3px solid var(--ink); box-shadow:8px 8px 0 var(--ink); background:var(--card); overflow:hidden}
+.ribbon{display:flex; flex-direction:column; height:clamp(745px,78vh,840px); border:3px solid var(--ink); box-shadow:8px 8px 0 var(--ink); background:var(--card); overflow:hidden}
 .blk{
   display:flex; align-items:center; justify-content:space-between; gap:12px; text-align:left;
   padding:9px clamp(12px,1.8vw,20px); overflow:hidden; position:relative; font:inherit; color:inherit;
@@ -934,7 +934,7 @@ html.splash-open, html.splash-open body{ overflow:hidden }
     <div>
       <p class="folio"><b>Five days</b> · Two tracks · One ocean</p>
       <div class="bigtype" id="bigtype">
-        <span class="ln lnme" data-t="Your"><span class="me" id="me" contenteditable="true" spellcheck="false" role="textbox" aria-label="Put your own name here">Your</span><span class="poss" id="poss" hidden>’s</span><span class="nametip" id="nametip">← put your name in it</span></span>
+        <span class="ln lnme" data-t="Your"><span class="me" id="me" contenteditable="true" spellcheck="false" role="textbox" aria-label="Put your own name here">Your</span><span class="poss" id="poss" hidden>’s</span><span class="nametip" id="nametip">← Type your name here</span></span>
         <span class="ln" data-t="Radical">Radical</span>
         <span class="ln" data-t="Sabbatical">Sabbatical</span>
       </div>
@@ -963,6 +963,7 @@ html.splash-open, html.splash-open body{ overflow:hidden }
         <figure class="pola" style="--rot:1.2; --n:5"><img data-src="pola-08.jpg" alt="Someone sitting cross-legged on the sand watching the sun over the water." width="700" height="700"><figcaption>Before anyone else is up</figcaption></figure>
         <figure class="pola" style="--rot:-3.6; --n:5"><img data-src="pola-09.jpg" alt="Someone marking up a manuscript in pink pencil beside a tall stack of pages." width="700" height="700"><figcaption>Editing is also making</figcaption></figure>
         <figure class="pola" style="--rot:2.1; --n:5"><img data-src="pola-10.jpg" alt="Someone threading painted beads onto a necklace, bowls of beads around them." width="700" height="700"><figcaption>Hands busy, head quiet, heart open</figcaption></figure>
+        <figure class="pola" style="--rot:-2.6; --n:5"><img data-src="pola-15.jpg" alt="Someone in headphones talking into a microphone, a waveform running across the laptop beside them." width="700" height="700"><figcaption>The podcast you finally started</figcaption></figure>
         <figure class="pola" style="--rot:-1.7; --n:5"><img data-src="pola-11.jpg" alt="Someone at a sewing machine working on a bright patchwork quilt, cat asleep below." width="700" height="700"><figcaption>Forty years of practice</figcaption></figure>
         <figure class="pola" style="--rot:2.9; --n:5"><img data-src="pola-12.jpg" alt="Someone arranging wooden blocks and sketch cards beside a laptop." width="700" height="700"><figcaption>Prototyping something nobody asked for</figcaption></figure>
         <figure class="pola" style="--rot:-2.8; --n:5"><img data-src="pola-13.jpg" alt="Someone examining prints and botanical plates with a magnifying glass." width="700" height="700"><figcaption>Research, loosely defined</figcaption></figure>
@@ -992,7 +993,7 @@ html.splash-open, html.splash-open body{ overflow:hidden }
       <p style="margin-top:20px; color:var(--mute); max-width:44ch">
         Here is the whole week as a hundred squares. Thirty of those we hold: a workshop each morning,
         a walk if you want one, a salon at night. The other seventy are yours, unprogrammed and
-        <span class="swap" tabindex="0" role="button" title="click me" data-alt="unapologetic|unsupervised|unjustified|unbothered|frankly unreasonable">unapologetic</span>.
+        <span class="swap" tabindex="0" role="button" title="click me" data-alt="unapologetic|unsupervised|unjustified|unbothered|frankly unreasonable">unapologetic<span class="clickme">↑ click here</span></span>.
       </p>
       <div class="math-key">
         <span class="k-blue"><i></i>Ours — 30</span>
@@ -1180,8 +1181,12 @@ html.splash-open, html.splash-open body{ overflow:hidden }
           <span class="n" data-base="Extended creative time">Extended creative time<span class="mini">Hours, not minutes — long enough to lose track of the light</span></span>
           <span class="t">Yours</span>
         </button>
-        <div class="blk salon" style="flex:2.3">
-          <span class="n">Creative salon<span class="mini">Read a page aloud. Prop something against a wall. Or listen.</span></span>
+        <div class="blk thin" style="flex:1">
+          <span class="n">Dinner</span>
+          <span class="t">Evening</span>
+        </div>
+        <div class="blk salon" style="flex:2.6">
+          <span class="n">Creative salon<span class="mini">Curated community conversation. Share. Listen. Expand your mind.</span></span>
           <span class="t">PM</span>
         </div>
       </div>
