@@ -795,9 +795,24 @@ html.splash-open, html.splash-open body{ overflow:hidden }
   display:block; width:72px; height:4px; background:var(--pink);
   margin:clamp(22px,3.4vw,32px) auto; mix-blend-mode:multiply;
 }
-.splash-dare{ max-width:46ch; margin-inline:auto; color:var(--mute); font-size:1.08rem; line-height:1.6 }
+.splash-callout{
+  max-width:44ch; margin:0 auto; text-align:center; rotate:-1.1deg;
+  background:var(--yellow); border:4px solid var(--ink); border-radius:2px;
+  box-shadow:7px 7px 0 var(--ink);
+  padding:clamp(18px,3vw,26px) clamp(18px,3vw,30px);
+}
+.splash-callout p{
+  font-family:var(--body); font-weight:600; color:var(--ink);
+  font-size:clamp(1rem,2.3vw,1.14rem); line-height:1.5;
+}
+.splash-callout b{
+  display:block; margin-top:12px;
+  font-family:var(--display); font-weight:800; font-variation-settings:"wdth" 86;
+  font-size:clamp(1.35rem,3.6vw,1.95rem); line-height:1.08; letter-spacing:-.02em;
+}
+.splash-dare{ max-width:46ch; margin:clamp(24px,3.6vw,34px) auto 0; color:var(--mute); font-size:1.08rem; line-height:1.6 }
 .splash-dare b{
-  display:block; margin-top:14px; color:var(--ink);
+  display:block; margin-top:0; color:var(--ink);
   font-family:var(--display); font-weight:800; font-variation-settings:"wdth" 88;
   font-size:clamp(1.2rem,3vw,1.7rem); line-height:1.15; letter-spacing:-.015em;
 }
@@ -853,8 +868,14 @@ html.splash-open, html.splash-open body{ overflow:hidden }
 
     <span class="splash-rule" aria-hidden="true"></span>
 
+    <div class="splash-callout">
+      <p>
+        This is not your average website. Click things. Stamp it. Put your name in the title.
+        <b>Make it yours.</b>
+      </p>
+    </div>
+
     <p class="splash-dare">
-      This is not your average website. Click things. Stamp it. Put your name in the title.
       <b>Abandon your preconceived notions here — and enter if you dare.</b>
     </p>
 
