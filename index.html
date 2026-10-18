@@ -238,7 +238,7 @@ a{color:var(--ink)}
 
 /* ───────── stickers ───────── */
 .sticker{
-  position:absolute; z-index:7; cursor:grab; touch-action:none; user-select:none;
+  position:absolute; z-index:60; cursor:grab; touch-action:none; user-select:none;
   font-family:var(--mono); font-weight:700; font-size:.82rem; letter-spacing:.12em; text-transform:uppercase;
   padding:12px 14px; text-align:center; line-height:1.3; border:3px solid var(--ink);
   box-shadow:3px 3px 0 rgba(22,20,26,.35);
@@ -252,6 +252,13 @@ a{color:var(--ink)}
 .sticker.s-blue{background:var(--blue); color:#F2F4FF}
 .sticker.s-green{background:var(--green); color:#F0FFF8}
 .sticker em{display:block; font-style:normal; font-family:var(--display); font-size:1.5rem; letter-spacing:-.02em}
+.sticker .dragme{
+  position:absolute; top:calc(100% + 9px); left:50%; translate:-50% 0;
+  font-family:var(--mono); font-weight:700; font-size:.74rem; letter-spacing:.15em;
+  text-transform:uppercase; color:var(--blue); white-space:nowrap; pointer-events:none;
+  transition:opacity .45s ease;
+}
+.sticker.moved .dragme{opacity:0}
 
 /* ───────── marquee ───────── */
 .band{background:var(--pink); color:#FFF6FA; border-block:3px solid var(--ink); overflow:hidden}
@@ -895,7 +902,7 @@ html.splash-open, html.splash-open body{ overflow:hidden }
         <span class="stamp blue">No experience required</span>
         <span class="stamp green">Cohort kept small</span>
       </div>
-      <p style="margin-top:22px"><a class="steplink" href="/blog/">Read the dispatches →</a></p>
+      <p style="margin-top:22px"><a class="steplink" href="/blog/">Read the Golb →</a></p>
     </div>
 
     <div style="position:relative">
@@ -904,7 +911,7 @@ html.splash-open, html.splash-open body{ overflow:hidden }
         <figure class="pola" style="--rot:1.8; --n:1"><img src="pola-02.jpg" alt="Two people at a round table talking over sheets of shapes and sketches." width="700" height="700" loading="eager"><figcaption>Workshop, somewhere around ten</figcaption></figure>
         <figure class="pola" style="--rot:-3.1; --n:2"><img src="pola-03.jpg" alt="A painter in headphones working on a large canvas, dog asleep at their feet." width="700" height="700" loading="eager"><figcaption>Afternoon, hour three</figcaption></figure>
         <figure class="pola" style="--rot:2.6; --n:3"><img src="pola-04.jpg" alt="Two people walking across a stone bridge over a pond with a fountain." width="700" height="700" loading="eager"><figcaption>The optional walk</figcaption></figure>
-        <figure class="pola" style="--rot:-1.4; --n:4"><img data-src="pola-05.jpg" alt="A painter at an easel on the beach, facing the sea." width="700" height="700"><figcaption>Plein air, low tide</figcaption></figure>
+        <figure class="pola" style="--rot:-1.4; --n:4"><img data-src="pola-05.jpg" alt="A painter at an easel on the beach, facing the sea." width="700" height="700"><figcaption>Set up on the sand</figcaption></figure>
         <figure class="pola" style="--rot:3.2; --n:5"><img data-src="pola-06.jpg" alt="A group sitting around a living room, one person reading aloud from a notebook." width="700" height="700"><figcaption>The salon runs late</figcaption></figure>
         <figure class="pola" style="--rot:-2.1; --n:5"><img data-src="pola-07.jpg" alt="People around a fire pit on a brick terrace at dusk, campus lit behind them." width="700" height="700"><figcaption>The amphitheatre, after dark</figcaption></figure>
         <figure class="pola" style="--rot:1.2; --n:5"><img data-src="pola-08.jpg" alt="Someone sitting cross-legged on the sand watching the sun over the water." width="700" height="700"><figcaption>Before anyone else is up</figcaption></figure>
@@ -917,7 +924,7 @@ html.splash-open, html.splash-open body{ overflow:hidden }
       </div>
       <p class="stack-hint" id="stackHint">↑ click to shuffle</p>
       <div class="sticker round s-yellow spin" style="top:-26px; right:-12px" data-drag><span><em>5</em>days</span></div>
-      <div class="sticker s-pink" style="bottom:28px; left:-26px; rotate:7deg" data-drag>Do not<br>disturb</div>
+      <div class="sticker s-pink" style="bottom:58px; left:-34px; rotate:7deg" data-drag>Do not<br>disturb<span class="dragme">↑ drag it</span></div>
     </div>
   </div>
 </header>
@@ -1490,7 +1497,7 @@ html.splash-open, html.splash-open body{ overflow:hidden }
   <div class="wrap">
     <span><b class="mastname">Your Radical Sabbatical</b> · Issue No. 01</span>
     <span><a href="https://yourradicalsabbatical.com">yourradicalsabbatical.com</a></span>
-    <span><a href="/blog/">Dispatches</a></span>
+    <span><a href="/blog/">Golb (the blog)</a></span>
     <span>Endicott College · Beverly, MA</span>
     <span>Five days · Summer 2027</span>
     <span class="colophon">
@@ -1831,7 +1838,8 @@ html.splash-open, html.splash-open body{ overflow:hidden }
     s.addEventListener("pointerdown", function(e){
       dragging = true; sx = e.clientX; sy = e.clientY;
       s.setPointerCapture(e.pointerId);
-      s.style.zIndex = 30; s.style.animation = "none";
+      s.classList.add("moved");
+      s.style.zIndex = 70; s.style.animation = "none";
       e.preventDefault(); e.stopPropagation();
     });
     s.addEventListener("pointermove", function(e){
