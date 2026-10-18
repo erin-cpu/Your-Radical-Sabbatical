@@ -501,6 +501,25 @@ a{color:var(--ink)}
 .ticket .stub{border-left:3px dashed var(--ink); background:var(--blue); color:#F2F4FF; display:grid; place-items:center}
 .ticket.b .stub{background:var(--pink); color:#FFF6FA}
 .ticket .stub span{writing-mode:vertical-rl; transform:rotate(180deg); font-family:var(--mono); font-weight:700; font-size:.88rem; letter-spacing:.2em; text-transform:uppercase; white-space:nowrap}
+.includes{
+  margin-top:clamp(24px,3.2vw,34px); background:var(--card);
+  border:3px solid var(--ink); box-shadow:7px 7px 0 var(--green);
+  padding:clamp(20px,3vw,30px);
+}
+.includes .lbl{
+  display:block; margin-bottom:16px;
+  font-family:var(--mono); font-weight:700; font-size:.94rem; letter-spacing:.17em;
+  text-transform:uppercase; color:var(--green);
+}
+.includes ul{
+  margin:0; padding:0; list-style:none;
+  display:grid; grid-template-columns:repeat(auto-fit,minmax(185px,1fr)); gap:11px 26px;
+}
+.includes li{position:relative; padding-left:27px; font-size:1.02rem; line-height:1.4}
+.includes li::before{
+  content:"✓"; position:absolute; left:0; top:-1px;
+  font-family:var(--display); font-weight:800; font-size:1.15em; line-height:1.2; color:var(--green);
+}
 .roomnote{
   margin-top:clamp(22px,3vw,32px); font-family:var(--mono); font-size:1.02rem;
   letter-spacing:.08em; color:var(--mute); border-top:2px dashed var(--rule); padding-top:16px;
@@ -1269,20 +1288,6 @@ html.splash-open, html.splash-open body{ overflow:hidden }
       <article class="ticket">
         <div class="body">
           <span class="opt-l">Option A</span>
-          <h3>Private Room</h3>
-          <p class="price">$4,000 <small>per person · five days</small></p>
-          <p style="color:var(--mute)">A bedroom of your own. Shared apartment bathroom, kitchen and living room.</p>
-          <ul>
-            <li>Nobody else's alarm to negotiate</li>
-            <li>Spread the work out and leave it out</li>
-            <li>Best if you need silence, or write at 2am</li>
-          </ul>
-        </div>
-        <div class="stub"><span>Single occupancy</span></div>
-      </article>
-      <article class="ticket b">
-        <div class="body">
-          <span class="opt-l">Option B</span>
           <h3>Shared Bedroom</h3>
           <p class="price">$3,200 <small>per person · five days</small></p>
           <p style="color:var(--mute)">Share a bedroom with another participant, and share the apartment space.</p>
@@ -1294,7 +1299,35 @@ html.splash-open, html.splash-open body{ overflow:hidden }
         </div>
         <div class="stub"><span>Double occupancy</span></div>
       </article>
+      <article class="ticket b">
+        <div class="body">
+          <span class="opt-l">Option B</span>
+          <h3>Private Room</h3>
+          <p class="price">$4,000 <small>per person · five days</small></p>
+          <p style="color:var(--mute)">A bedroom of your own. Shared apartment bathroom, kitchen and living room.</p>
+          <ul>
+            <li>Nobody else's alarm to negotiate</li>
+            <li>Spread the work out and leave it out</li>
+            <li>Best if you need silence, or write at 2am</li>
+          </ul>
+        </div>
+        <div class="stub"><span>Single occupancy</span></div>
+      </article>
     </div>
+    <div class="includes">
+      <span class="lbl">Both rates include</span>
+      <ul>
+        <li>Your room</li>
+        <li>Linens</li>
+        <li>All meals</li>
+        <li>Spaces to work in</li>
+        <li>Workshops</li>
+        <li>Salons</li>
+        <li>Time to create</li>
+        <li>Access to the beach</li>
+      </ul>
+    </div>
+
     <p class="roomnote">Final 2027 room availability and arrangements to follow.</p>
   </div>
 </section>
@@ -1439,7 +1472,7 @@ html.splash-open, html.splash-open body{ overflow:hidden }
       </details>
       <details>
         <summary>What does it cost, and what's included?</summary>
-        <div class="a"><p>$4,000 for a private room, $3,200 for a shared bedroom — per person, for the five days. Exactly what that covers is set out in full with the application, before anyone is asked for a payment.</p><p>Registration is the last of the four steps, not the first. You can express interest and apply without committing to anything.</p></div>
+        <div class="a"><p>$3,200 for a shared bedroom, $4,000 for a private room — per person, for the five days. Both include your room, linens, all meals, the spaces to work in, the workshops and salons, and the beach at the bottom of the lawn.</p><p>What it doesn't cover is getting there. Registration is also the last of the four steps, not the first — you can express interest and apply without committing to anything.</p></div>
       </details>
       <details>
         <summary>How do I get to Endicott?</summary>
