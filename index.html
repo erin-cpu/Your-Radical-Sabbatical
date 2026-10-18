@@ -1517,8 +1517,10 @@ html.splash-open, html.splash-open body{ overflow:hidden }
   /* ── the splash: shown once per visitor, or any time with #splash ── */
   var splash = document.getElementById("splash");
   if(splash){
+    /* sessionStorage, not localStorage: the splash returns on a fresh visit,
+       but doesn't re-gate someone clicking around within one. */
     var SKEY = "radical-sabbatical-entered", seen = false;
-    try{ seen = localStorage.getItem(SKEY) === "1"; }catch(err){}
+    try{ seen = sessionStorage.getItem(SKEY) === "1"; }catch(err){}
     if(location.hash === "#splash") seen = false;
 
     if(seen){
@@ -1531,7 +1533,7 @@ html.splash-open, html.splash-open body{ overflow:hidden }
         entered = true;
         splash.classList.add("gone");
         document.documentElement.classList.remove("splash-open");
-        try{ localStorage.setItem(SKEY, "1"); }catch(err){}
+        try{ sessionStorage.setItem(SKEY, "1"); }catch(err){}
         setTimeout(function(){ if(splash.parentNode) splash.remove(); }, reduce ? 0 : 580);
       };
       var enterBtn = document.getElementById("enterBtn");
