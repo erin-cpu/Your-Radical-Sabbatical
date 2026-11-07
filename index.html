@@ -957,9 +957,9 @@ html.splash-open, html.splash-open body{ overflow:hidden }
 <div class="spine" aria-hidden="true">Your Radical Sabbatical · yourradicalsabbatical.com · Summer 2027</div>
 
 <div class="meter" id="meter" aria-hidden="true">
-  <span class="lab">Usefulness<b id="meterPct">100%</b></span>
+  <span class="lab">Obligation<b id="meterPct">100%</b></span>
   <span class="bar"><span class="fill" id="meterFill"></span></span>
-  <span class="say" id="meterSay">worryingly productive</span>
+  <span class="say" id="meterSay">fully booked</span>
 </div>
 
 <header class="sec cover stampable" id="cover">
@@ -1183,7 +1183,7 @@ html.splash-open, html.splash-open body{ overflow:hidden }
         <span class="dayno" id="dayNo">01</span>
         <span class="daytitle" id="dayTitle">Arrive, unclench</span>
       </div>
-      <p class="daynote" id="dayNote">You will spend the first afternoon reorganising your bag and calling it work. Everybody does. Let it happen — the week hasn't started yet, and you are permitted to be completely useless on arrival.</p>
+      <p class="daynote" id="dayNote">You will spend the first afternoon reorganising your bag and calling it work. Everybody does. Let it happen — the week hasn't started yet, and you are permitted to do absolutely nothing on arrival.</p>
       <p class="samenote">The rhythm on the right is the same every single day. What changes is you.</p>
 
       <div class="day-legend">
@@ -1568,7 +1568,7 @@ html.splash-open, html.splash-open body{ overflow:hidden }
   <div class="wrap">
     <div class="slip">
       <p class="hd">Permission slip · tear along the dotted line</p>
-      <h2>The bearer<span id="slipWho"></span> is excused from being useful for five consecutive days.</h2>
+      <h2>The bearer<span id="slipWho"></span> is excused from all other obligations for five consecutive days.</h2>
       <p class="fine">No justification required. No deliverable expected. Signature of a supervisor, spouse or inner critic explicitly <strong>not</strong> needed.</p>
       <div class="lines">
         <div class="ln2"><em>Summer 2027</em>When</div>
@@ -2038,13 +2038,13 @@ html.splash-open, html.splash-open body{ overflow:hidden }
   var lastY = window.scrollY || 0, ticking = false;
 
   function says(p){
-    if(p > 86) return "worryingly productive";
-    if(p > 68) return "declining nicely";
-    if(p > 48) return "losing the thread";
-    if(p > 28) return "pleasantly adrift";
-    if(p > 8)  return "almost useless";
-    if(p > 0)  return "very nearly nothing";
-    return "congratulations. zero.";
+    if(p > 86) return "fully booked";
+    if(p > 68) return "loosening nicely";
+    if(p > 48) return "letting go";
+    if(p > 28) return "mostly yours now";
+    if(p > 8)  return "nearly clear";
+    if(p > 0)  return "almost nothing left";
+    return "nothing owed. at all.";
   }
 
   function onScroll(){
@@ -2079,7 +2079,7 @@ html.splash-open, html.splash-open body{ overflow:hidden }
   /* ── five days, each with its own weather ── */
   var DAYS = [
     {n:"01", t:"Arrive, unclench", d:"var(--blue)", dt:"#F2F4FF", dn:"var(--blue)",
-     note:"You will spend the first afternoon reorganising your bag and calling it work. Everybody does. Let it happen — the week hasn't started yet, and you are permitted to be completely useless on arrival."},
+     note:"You will spend the first afternoon reorganising your bag and calling it work. Everybody does. Let it happen — the week hasn't started yet, and you are permitted to do absolutely nothing on arrival."},
     {n:"02", t:"The real first day", d:"var(--green)", dt:"#EFFFF8", dn:"var(--green)",
      note:"The one where you actually begin. Mornings here are the sharpest you'll feel all week, and that afternoon is probably the first time in months that nothing has interrupted you."},
     {n:"03", t:"The wobble", d:"var(--pink)", dt:"#FFF6FA", dn:"var(--pink)",
