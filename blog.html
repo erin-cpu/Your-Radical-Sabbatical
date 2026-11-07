@@ -1,8 +1,37 @@
----
-layout: default
-title: Golb
-permalink: /blog/
----
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Golb · Your Radical Sabbatical</title>
+<meta name="description" content="Ramblings, musings and the occasional useful thing — about creative time, unstructured days, and what happens when you stop being useful for five days running.">
+<link rel="canonical" href="https://yourradicalsabbatical.com/blog.html">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Your Radical Sabbatical">
+<meta property="og:url" content="https://yourradicalsabbatical.com/blog.html">
+<meta property="og:title" content="Golb">
+<meta property="og:description" content="Ramblings, musings and the occasional useful thing — about creative time, unstructured days, and what happens when you stop being useful for five days running.">
+<meta property="og:image" content="https://yourradicalsabbatical.com/social-card.jpg">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="icon" href="/favicon.png" type="image/png">
+<meta name="theme-color" content="#F0EBDF">
+
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,200..800&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400&family=Archivo:wdth,wght@62..125,100..900&display=swap">
+<link rel="stylesheet" href="/blog.css">
+</head>
+<body>
+
+<div class="masthead">
+  <div class="wrap">
+    <span><b>Your Radical Sabbatical</b> · Golb</span>
+    <span><a href="/">← back to the main page</a></span>
+  </div>
+</div>
+
 <header class="page-head">
   <div class="wrap">
     <p class="folio">Notes from before the week</p>
@@ -14,20 +43,25 @@ permalink: /blog/
 
 <div class="posts">
   <div class="wrap">
-    {% if site.posts.size > 0 %}
-      {% for post in site.posts %}
-        <article class="post-item">
-          <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%-d %B %Y" }}</time>
-          <h2><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h2>
-          <p class="excerpt">{{ post.excerpt | strip_html | strip_newlines | truncate: 220 }}</p>
-          <a class="more" href="{{ post.url | relative_url }}">Read it →</a>
-        </article>
-      {% endfor %}
-    {% else %}
-      <p class="empty">
-        Nothing here yet.<br>
-        The first one goes up soon.
-      </p>
-    {% endif %}
+
+    <article class="post-item">
+      <time datetime="2026-11-05">5 November 2026</time>
+      <h2><a href="/post-someday-hour.html">What If Someday Started With an Hour?</a></h2>
+      <p class="excerpt">There is a whisper on your heart. Maybe it has been there for years. You have every intention of getting to it — after work settles down, after the kids need less, when there is finally room. But the plate keeps filling up.</p>
+      <a class="more" href="/post-someday-hour.html">Read it →</a>
+    </article>
+
   </div>
 </div>
+
+<footer>
+  <div class="wrap">
+    <span><b>Your Radical Sabbatical</b></span>
+    <span><a href="/">yourradicalsabbatical.com</a></span>
+    <span>Endicott College · Beverly, MA</span>
+    <span>Five days · Summer 2027</span>
+  </div>
+</footer>
+
+</body>
+</html>
