@@ -195,8 +195,10 @@ a{color:var(--ink)}
   content:attr(data-t); position:absolute; inset:0; z-index:-1; mix-blend-mode:multiply;
   font-variation-settings:"wdth" var(--wd,78);
 }
-.bigtype .ln::before{color:var(--pink); translate:var(--mx,-7px) var(--my,5px)}
-.bigtype .ln::after{color:var(--blue); translate:calc(var(--mx,-7px) * -.72) calc(var(--my,5px) * -.8)}
+/* the offset is measured in letter-widths, not pixels, so the misregistration
+   looks the same on a phone as it does on a laptop */
+.bigtype .ln::before{color:var(--pink); translate:var(--mx,-.042em) var(--my,.03em)}
+.bigtype .ln::after{color:var(--blue); translate:calc(var(--mx,-.042em) * -.72) calc(var(--my,.03em) * -.8)}
 .bigtype .ln:nth-child(2){margin-left:clamp(0px,3.5vw,54px)}
 
 .cover-sub{font-size:clamp(1.06rem,2vw,1.36rem); line-height:1.45; max-width:34ch; font-weight:500}
@@ -890,6 +892,11 @@ html.splash-open, html.splash-open body{ overflow:hidden }
 @media (max-width:1180px){
   .scribble{display:none}
 }
+/* phone: open the title up a little so it reads at small sizes */
+@media (max-width:600px){
+  .bigtype{--wd:84}
+  .bigtype .ln{letter-spacing:-.03em; line-height:.88}
+}
 @media (prefers-reduced-motion:reduce){
   *,*::before,*::after{animation-duration:.001ms !important; animation-iteration-count:1 !important; transition-duration:.001ms !important}
 }
@@ -976,7 +983,7 @@ html.splash-open, html.splash-open body{ overflow:hidden }
         <span class="stamp blue">No experience required</span>
         <span class="stamp green">Capped at 30</span>
       </div>
-      <p style="margin-top:22px"><a class="steplink" href="/blog/">Read the Golb →</a></p>
+      <p style="margin-top:22px"><a class="steplink" href="/blog.html">Read the Golb →</a></p>
     </div>
 
     <div style="position:relative">
@@ -1592,7 +1599,7 @@ html.splash-open, html.splash-open body{ overflow:hidden }
   <div class="wrap">
     <span><b class="mastname">Your Radical Sabbatical</b> · Issue No. 01</span>
     <span><a href="https://yourradicalsabbatical.com">yourradicalsabbatical.com</a></span>
-    <span><a href="/blog/">Golb (the blog)</a></span>
+    <span><a href="/blog.html">Golb (the blog)</a></span>
     <span>Endicott College · Beverly, MA</span>
     <span>Five days · Summer 2027</span>
     <span class="colophon">
@@ -1645,12 +1652,12 @@ html.splash-open, html.splash-open body{ overflow:hidden }
     big.addEventListener("pointermove", function(e){
       var r = big.getBoundingClientRect();
       var px = (e.clientX - r.left) / r.width, py = (e.clientY - r.top) / r.height;
-      big.style.setProperty("--mx", (-7 + (px - .5) * 24).toFixed(1) + "px");
-      big.style.setProperty("--my", (5 + (py - .5) * 17).toFixed(1) + "px");
+      big.style.setProperty("--mx", (-0.042 + (px - .5) * 0.143).toFixed(4) + "em");
+      big.style.setProperty("--my", (0.03 + (py - .5) * 0.101).toFixed(4) + "em");
       big.style.setProperty("--wd", (76 + px * 22).toFixed(1));
     });
     big.addEventListener("pointerleave", function(){
-      big.style.setProperty("--mx","-7px"); big.style.setProperty("--my","5px"); big.style.setProperty("--wd","78");
+      big.style.setProperty("--mx","-.042em"); big.style.setProperty("--my",".03em"); big.style.setProperty("--wd","78");
     });
   }
 
